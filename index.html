@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Cyber Security</title>
 
+<style>
+/* ===== Global Styling ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background:#0f2027;
+    color:white;
+}
+
+/* ===== Navbar ===== */
+nav{
+    background:#111;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+}
+
+nav h2{
+    color:#00c6ff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00c6ff;
+}
+
+/* ===== Hero Section ===== */
+.hero{
+    height:100vh;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* ===== Features ===== */
+.features{
+    padding:80px 50px;
+    text-align:center;
+}
+
+.features h2{
+    margin-bottom:30px;
+}
+
+.feature-list{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.feature{
+    background:#1c1c1c;
+    padding:20px;
+    border-radius:10px;
+    width:220px;
+    transition:0.3s;
+}
+
+.feature:hover{
+    transform:translateY(-8px);
+    background:#00c6ff;
+}
+
+/* ===== Statistics Section ===== */
+.stats{
+    background:#111;
+    padding:80px 50px;
+    text-align:center;
+}
+
+.stats h2{
+    margin-bottom:40px;
+}
+
+.stat-container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    font-size:35px;
+    font-weight:bold;
+}
+
+.stat-label{
+    font-size:14px;
+    margin-top:10px;
+    color:#aaa;
+}
+
+/* ===== Footer ===== */
+footer{
+    background:#000;
+    padding:20px;
+    text-align:center;
+    color:#777;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+    .hero h1{
+        font-size:28px;
+    }
+
+    nav{
+        padding:15px 20px;
+    }
+
+    .feature-list{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav>
+    <h2>AI Security</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#stats">Statistics</a></li>
+    </ul>
+</nav>
+
+<!-- ===== Hero Section ===== -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Role of AI in Cyber Security</h1>
+        <p>
+            Artificial Intelligence enhances modern cyber defense systems by detecting threats,
+            analyzing behavior patterns, and responding to attacks in real-time.
+        </p>
+    </div>
+</section>
+
+<!-- ===== Features Section ===== -->
+<section class="features" id="features">
+    <h2>Key Capabilities</h2>
+    <div class="feature-list">
+        <div class="feature">Threat Detection</div>
+        <div class="feature">Malware Analysis</div>
+        <div class="feature">Predictive Security</div>
+    </div>
+</section>
+
+<!-- ===== Animated Statistics Section ===== -->
+<section class="stats" id="stats">
+    <h2>Cyber Security Insights</h2>
+    <div class="stat-container">
+        <div>
+            <div class="stat" data-target="95">0</div>
+            <div class="stat-label">% Threat Detection Accuracy</div>
+        </div>
+        <div>
+            <div class="stat" data-target="70">0</div>
+            <div class="stat-label">% Faster Incident Response</div>
+        </div>
+        <div>
+            <div class="stat" data-target="60">0</div>
+            <div class="stat-label">% Reduced False Positives</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+    © 2026 AI Cyber Security | Designed Professionally
+</footer>
+
+<script>
+/* ===== Animated Counter Script ===== */
+const counters = document.querySelectorAll('.stat');
+
+const speed = 100; 
+
+counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / speed;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCount();
+});
+</script>
+
+</body>
+</html>
